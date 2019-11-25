@@ -1,0 +1,43 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/Cadet/get/{cadetId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          //"Port": "44387"
+          "Port": "89"
+        }
+      ],
+      "UpstreamPathTemplate": "/getCadet/{cadetId}",
+      "Key": "Cadet"
+    },
+    {
+      "DownstreamPathTemplate": "/api/courseHistory/getForCadet/{cadetId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          //"Port": "44387"
+          "Port": "90"
+        }
+      ],
+      "UpstreamPathTemplate": "/getCadetCourseHistory/{cadetId}",
+      "Key": "CourseHistory"
+    }
+  ],
+  "Aggregates": [
+    {
+      "ReRouteKeys": [
+        "Cadet",
+        "CourseHistory"
+      ],
+      "UpstreamPathTemplate": "/CadetAndCourseHistory/{cadetId}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000/"
+   
+  }
+}

@@ -1,13 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <UserSecretsId>b5c31666-e08b-43df-ae49-8a499b4cc4f1</UserSecretsId>
+    <UserSecretsId>fd319bc6-f674-49e2-8f02-64f28444b07f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+    <PackageReference Include="Ocelot" Version="13.8.0" />
   </ItemGroup>
 
 </Project>

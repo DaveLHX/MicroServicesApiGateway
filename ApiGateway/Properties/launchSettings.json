@@ -3,24 +3,21 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:43384",
-      "sslPort": 44386
+      "applicationUrl": "http://localhost:55394",
+      "sslPort": 44356
     }
   },
-  "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/CourseHistory/getForCadet/42",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "CourseHistory": {
+    "ApiGateway": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/CourseHistory/getForCadet/42",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -29,14 +26,14 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/CourseHistory/getForCadet/42",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
       "environmentVariables": {
-        "ASPNETCORE_URLS": "https://+:443;http://+:80",
-        "ASPNETCORE_HTTPS_PORT": "44387"
+        "ASPNETCORE_URLS": "http://+:80"
+      //  "ASPNETCORE_HTTPS_PORT": "44357"
       },
-      "httpPort": 43386,
-      "useSSL": true,
-      "sslPort": 44387
+      "httpPort": 55395
+      //"useSSL": true,
+      //"sslPort": 44357
     }
   }
 }

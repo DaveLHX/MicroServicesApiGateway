@@ -2,6 +2,5 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>Docker</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>asdfasdf</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

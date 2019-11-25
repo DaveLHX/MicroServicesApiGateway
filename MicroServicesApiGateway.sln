@@ -7,6 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadetApi", "CadetApi\CadetA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseHistory", "CourseHistory\CourseHistory.csproj", "{FC504EEF-420D-46E8-931F-AC5EC2AA860B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD30CDE1-DEDF-48A0-B363-B04FA5F89FFE}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{A0368553-7C33-4612-9B04-8DD821966C39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GateWay", "GateWay\GateWay.csproj", "{F42895B6-BA2D-478B-903D-845013B34C28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +30,14 @@ Global
 		{FC504EEF-420D-46E8-931F-AC5EC2AA860B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC504EEF-420D-46E8-931F-AC5EC2AA860B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC504EEF-420D-46E8-931F-AC5EC2AA860B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0368553-7C33-4612-9B04-8DD821966C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0368553-7C33-4612-9B04-8DD821966C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0368553-7C33-4612-9B04-8DD821966C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0368553-7C33-4612-9B04-8DD821966C39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42895B6-BA2D-478B-903D-845013B34C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42895B6-BA2D-478B-903D-845013B34C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42895B6-BA2D-478B-903D-845013B34C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42895B6-BA2D-478B-903D-845013B34C28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

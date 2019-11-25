@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace CourseHistory.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CourseHistoryController : ControllerBase
     {
         private readonly ILogger<CourseHistoryController> _logger;
@@ -19,7 +19,7 @@ namespace CourseHistory.Controllers
         }
 
         [HttpGet]
-        [Route("{cadetId}")]
+        [Route("getForCadet/{cadetId}")]
         public IEnumerable<CourseResult> Get(int cadetId)
         {          
             return Enumerable.Range(1, 5).Select(index => new CourseResult

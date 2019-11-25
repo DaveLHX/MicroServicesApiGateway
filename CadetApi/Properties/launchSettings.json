@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "Cadet/42",
+      "launchUrl": "api/Cadet/get/42",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "CadetApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "Cadet/42",
+      "launchUrl": "api/Cadet/get/42",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -29,7 +29,7 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/Cadet/42",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/Cadet/get/42",
       "environmentVariables": {
         "ASPNETCORE_URLS": "https://+:443;http://+:80",
         "ASPNETCORE_HTTPS_PORT": "44350"

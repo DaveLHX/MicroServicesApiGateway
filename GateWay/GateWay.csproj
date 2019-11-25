@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <UserSecretsId>b5c31666-e08b-43df-ae49-8a499b4cc4f1</UserSecretsId>
+    <UserSecretsId>41d8dca5-8d11-405f-b2d9-4cf7b7f2804b</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+    <PackageReference Include="Ocelot" Version="13.8.0" />
   </ItemGroup>
 
 </Project>

@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:43384",
-      "sslPort": 44386
+      "applicationUrl": "http://localhost:63323",
+      "sslPort": 44380
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -12,15 +12,15 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/CourseHistory/getForCadet/42",
+      "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "CourseHistory": {
+    "GateWay": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/CourseHistory/getForCadet/42",
+      "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -29,14 +29,14 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/CourseHistory/getForCadet/42",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_URLS": "https://+:443;http://+:80",
-        "ASPNETCORE_HTTPS_PORT": "44387"
+        "ASPNETCORE_HTTPS_PORT": "44381"
       },
-      "httpPort": 43386,
+      "httpPort": 63324,
       "useSSL": true,
-      "sslPort": 44387
+      "sslPort": 44381
     }
   }
 }

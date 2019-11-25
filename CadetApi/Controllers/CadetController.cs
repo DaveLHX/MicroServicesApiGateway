@@ -5,7 +5,7 @@ using System;
 namespace CadetApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CadetController : ControllerBase
     {
         private readonly ILogger<CadetController> _logger;
@@ -16,7 +16,7 @@ namespace CadetApi.Controllers
         }
 
         [HttpGet]
-        [Route("{cadetId}")]
+        [Route("get/{cadetId}")]
         public Cadet Get(int cadetId)
         {
             return new Cadet() { BirthDate = DateTime.Today.AddDays(-13), CurrentRank = 2, 
