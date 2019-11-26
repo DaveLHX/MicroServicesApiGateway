@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
 
 namespace CadetApi.Controllers
 {
@@ -22,6 +23,13 @@ namespace CadetApi.Controllers
             return new Cadet() { BirthDate = DateTime.Today.AddDays(-13), CurrentRank = 2, 
                 Element = 1, Id = cadetId, FirstName = "CadetFirstName", 
                 LastName = "CadetLastName", Program = 3 };
+        }
+
+        [HttpGet]
+        [Route("whoami")]
+        public IDictionary WhoAmI()
+        {
+            return  Environment.GetEnvironmentVariables();
         }
     }
 }

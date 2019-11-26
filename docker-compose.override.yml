@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  apigateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # - ASPNETCORE_URLS=http://0.0.0.0:80
+      # - ASPNETCORE_HTTPS_PORT=44366
+    ports:
+      - "5540:80"       
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  cadetapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+     # - ASPNETCORE_URLS=http://0.0.0.0:80
+     # - ASPNETCORE_HTTPS_PORT=44359   
+    ports:
+      - "80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  coursehistory:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+     # - ASPNETCORE_URLS=http://0.0.0.0:80
+     # - ASPNETCORE_HTTPS_PORT=44396   
+    ports:
+      - "80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
