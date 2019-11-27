@@ -29,27 +29,41 @@
       "Key": "CadetAll"
     },
     {
-      "DownstreamPathTemplate": "/api/courseHistory/getForCadet/{cadetId}",
+      "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "coursehistory",
+          "Host": "commonlistsapi",
           //"Host": "host.docker.internal",
           //"Port": "44387"
           "Port": "80"
         }
       ],
-      "UpstreamPathTemplate": "/getCadetCourseHistory/{cadetId}",
-      "Key": "CourseHistory"
+      "UpstreamPathTemplate": "/Reference/{everything}",
+      "Key": "Reference"
+    },
+    {
+      "DownstreamPathTemplate": "/api/Military/Ranks",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "commonlistsapi",
+          //"Host": "host.docker.internal",
+          //"Port": "44387"
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Reference/Military/Ranks",
+      "Key": "Ranks"
     }
   ],
   "Aggregates": [
     {
       "ReRouteKeys": [
         "Cadet",
-        "CourseHistory"
+        "Ranks"
       ],
-      "UpstreamPathTemplate": "/CadetAndCourseHistory/{cadetId}"
+      "UpstreamPathTemplate": "/CadetAndRanks/{cadetId}"
     }
   ],
   "GlobalConfiguration": {

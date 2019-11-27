@@ -8,7 +8,7 @@ services:
       dockerfile: ApiGateway/Dockerfile
     depends_on:
     - cadetapi
-    - coursehistory
+    - commonlistsapi
   cadetapi:
     image: ${DOCKER_REGISTRY-}cadetapi
     build:
@@ -16,11 +16,11 @@ services:
       dockerfile: CadetApi/Dockerfile
     depends_on:
     - db
-  coursehistory:
-    image: ${DOCKER_REGISTRY-}coursehistory
+  commonlistsapi:
+    image: ${DOCKER_REGISTRY-}commonlistsapi
     build:
       context: .
-      dockerfile: CourseHistory/Dockerfile
+      dockerfile: CommonListsApi/Dockerfile
     depends_on:
     - db
   db:

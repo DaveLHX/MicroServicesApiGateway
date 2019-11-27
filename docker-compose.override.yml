@@ -26,7 +26,7 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-  coursehistory:
+  commonlistsapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
      # - ASPNETCORE_URLS=http://0.0.0.0:80
