@@ -14,11 +14,15 @@ services:
     build:
       context: .
       dockerfile: CadetApi/Dockerfile
-
-
+    depends_on:
+    - db
   coursehistory:
     image: ${DOCKER_REGISTRY-}coursehistory
     build:
       context: .
       dockerfile: CourseHistory/Dockerfile
-
+    depends_on:
+    - db
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+  

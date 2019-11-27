@@ -3,5 +3,6 @@
   <PropertyGroup>
     <ActiveDebugProfile>Docker</ActiveDebugProfile>
     <NameOfLastUsedPublishProfile>asdfasdf</NameOfLastUsedPublishProfile>
+    <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
 </Project>

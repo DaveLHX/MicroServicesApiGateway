@@ -3,7 +3,7 @@ version: '3.4'
 services:
   apigateway:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Development 
       # - ASPNETCORE_URLS=http://0.0.0.0:80
       # - ASPNETCORE_HTTPS_PORT=44366
     ports:
@@ -14,10 +14,15 @@ services:
   cadetapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - DbServer=db
+      - DbPort=1433
+      - DbUser=SA
+      - DBPassword=Duuu988@P4w0RD!
+      - Database=ApiDatabase
      # - ASPNETCORE_URLS=http://0.0.0.0:80
      # - ASPNETCORE_HTTPS_PORT=44359   
     ports:
-      - "80"
+      - "5541:80"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -31,3 +36,9 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  db:    
+    environment:
+        SA_PASSWORD: "Duuu988@P4w0RD!"
+        ACCEPT_EULA: "Y"
+    ports:
+      - "5555:1433"

@@ -1,6 +1,6 @@
 using System;
 
-namespace CadetApi
+namespace CadetApi.Model
 {
     public class Cadet
     {
@@ -17,4 +17,6 @@ namespace CadetApi
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
+
+    
 }
