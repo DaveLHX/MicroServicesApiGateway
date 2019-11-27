@@ -10,11 +10,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD30CDE1-DEDF-48A0-B363-B04FA5F89FFE}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{A0368553-7C33-4612-9B04-8DD821966C39}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{305A5865-5713-44EF-B867-358E2B66D9F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL-Script", "SQL-Script", "{BBBD3F06-3F27-4FD9-B6DF-C941073AA7F4}"
+	ProjectSection(SolutionItems) = preProject
+		sample-data.sql = sample-data.sql
+		sample-model.sql = sample-model.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{0512181D-34F2-405E-A4BC-4C8944F1B2ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,9 +47,16 @@ Global
 		{305A5865-5713-44EF-B867-358E2B66D9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{305A5865-5713-44EF-B867-358E2B66D9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{305A5865-5713-44EF-B867-358E2B66D9F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0512181D-34F2-405E-A4BC-4C8944F1B2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0512181D-34F2-405E-A4BC-4C8944F1B2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0512181D-34F2-405E-A4BC-4C8944F1B2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0512181D-34F2-405E-A4BC-4C8944F1B2ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BBBD3F06-3F27-4FD9-B6DF-C941073AA7F4} = {CD30CDE1-DEDF-48A0-B363-B04FA5F89FFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46D9D31D-D884-492D-9DB3-3DFA1333C3BB}
