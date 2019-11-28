@@ -15,7 +15,10 @@ RUN /opt/mssql/bin/sqlservr --accept-eula \ && /opt/mssql-tools/bin/sqlcmd -S lo
 
 docker pull mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Duuu988@P4w0RD!" `
-   -p 1488:1433 --name sql1 `
-   -d mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
+-p 1488:1433 --name sql1 `
+-d mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
 
-   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "Duuu988@P4w0RD!"
+/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "Duuu988@P4w0RD!"
+
+
+docker-compose -f docker-compose-direct.yml -f docker-compose.override.yml up

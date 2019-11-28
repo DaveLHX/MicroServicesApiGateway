@@ -5,7 +5,7 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>305a5865-5713-44ef-b867-358e2b66d9f0</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/Cadet/whoami</DockerServiceUrl>
     <DockerServiceName>apigateway</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

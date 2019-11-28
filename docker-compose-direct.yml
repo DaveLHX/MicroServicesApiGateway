@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  apigateway:
+    image: apigateway:latest   
+    depends_on:
+    - cadetapi
+    - commonlistsapi
+  cadetapi:
+    image: cadetapi:latest   
+    depends_on:
+    - db
+  commonlistsapi:
+    image: commonlistsapi:latest   
+    depends_on:
+    - db
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+  

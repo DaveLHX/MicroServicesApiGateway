@@ -18,7 +18,7 @@ services:
       - DbPort=1433
       - DbUser=SA
       - DBPassword=Duuu988@P4w0RD!
-      - Database=ApiDatabase
+      - Database=cadetapi
      # - ASPNETCORE_URLS=http://0.0.0.0:80
      # - ASPNETCORE_HTTPS_PORT=44359   
     ports:
@@ -29,6 +29,11 @@ services:
   commonlistsapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - DbServer=db
+      - DbPort=1433
+      - DbUser=SA
+      - DBPassword=Duuu988@P4w0RD!
+      - Database=commonlistsapi
      # - ASPNETCORE_URLS=http://0.0.0.0:80
      # - ASPNETCORE_HTTPS_PORT=44396   
     ports:

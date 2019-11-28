@@ -10,10 +10,11 @@ namespace CadetApi.Db
 {
     public class CadetContext : DbContext
     {
-        public CadetContext(DbContextOptions<CadetContext> options):base(options)
+        public CadetContext(DbContextOptions<CadetContext> options) : base(options)
         {
 
         }
+       
         public DbSet<Cadet> Cadets { get; set; }
 
 

@@ -1,8 +1,10 @@
-﻿using CadetApi.Model;
+﻿using CadetApi.Db;
+using CadetApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections;
+using System.Linq;
 
 namespace CadetApi.Controllers
 {
@@ -11,20 +13,29 @@ namespace CadetApi.Controllers
     public class CadetController : ControllerBase
     {
         private readonly ILogger<CadetController> _logger;
+        private readonly CadetContext _Context;
 
-        public CadetController(ILogger<CadetController> logger)
+        public CadetController(ILogger<CadetController> logger,CadetContext context)
         {
             _logger = logger;
+            _Context = context;
         }
 
         [HttpGet]
         [Route("get/{cadetId}")]
-        public Cadet Get(int cadetId)
+        public IActionResult Get(int cadetId)
         {
-            return new Cadet() { BirthDate = DateTime.Today.AddDays(-13), CurrentRank = 2, 
-                Element = 1, Id = cadetId, FirstName = "CadetFirstName", 
-                LastName = "CadetLastName", Program = 3 };
+            return Ok(_Context.Cadets.FirstOrDefault(o => o.Id == cadetId));
         }
+
+
+        [HttpGet]
+        [Route("getAll")]
+        public IActionResult Get()
+        {
+            return Ok(_Context.Cadets.ToList());
+        }
+
 
         [HttpGet]
         [Route("whoami")]
