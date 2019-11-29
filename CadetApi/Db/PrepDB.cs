@@ -1,9 +1,11 @@
 ﻿using CadetApi.Model;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CadetApi.Db
 {
@@ -72,4 +74,48 @@ namespace CadetApi.Db
             }
         }
     }
+
+    //public class SeedStuff
+    //{
+    //    public async Task SeedAsync(CadetContext context, IHostingEnvironment env, IOptions<CatalogSettings> settings, ILogger<CatalogContextSeed> logger)
+    //    {
+    //        var policy = CreatePolicy(logger, nameof(CatalogContextSeed));
+
+    //        await policy.ExecuteAsync(async () =>
+    //        {
+    //            var useCustomizationData = settings.Value.UseCustomizationData;
+    //            var contentRootPath = env.ContentRootPath;
+    //            var picturePath = env.WebRootPath;
+
+    //            if (!context.CatalogBrands.Any())
+    //            {
+    //                await context.CatalogBrands.AddRangeAsync(useCustomizationData
+    //                    ? GetCatalogBrandsFromFile(contentRootPath, logger)
+    //                    : GetPreconfiguredCatalogBrands());
+
+    //                await context.SaveChangesAsync();
+    //            }
+
+    //            if (!context.CatalogTypes.Any())
+    //            {
+    //                await context.CatalogTypes.AddRangeAsync(useCustomizationData
+    //                    ? GetCatalogTypesFromFile(contentRootPath, logger)
+    //                    : GetPreconfiguredCatalogTypes());
+
+    //                await context.SaveChangesAsync();
+    //            }
+
+    //            if (!context.CatalogItems.Any())
+    //            {
+    //                await context.CatalogItems.AddRangeAsync(useCustomizationData
+    //                    ? GetCatalogItemsFromFile(contentRootPath, context, logger)
+    //                    : GetPreconfiguredItems());
+
+    //                await context.SaveChangesAsync();
+
+    //                GetCatalogItemPictures(contentRootPath, picturePath);
+    //            }
+    //        });
+    //    }
+    
 }
