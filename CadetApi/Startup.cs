@@ -42,7 +42,7 @@ namespace CadetApi
                     name: "CadetApiDB-check",
                     healthQuery: "Select 1;",
                     tags: new string[] { "cadetapidb" });
-            services.AddHealthChecksUI();
+            services.AddHealthChecksUI("healthchecksdb", settings => settings.AddHealthCheckEndpoint("My health checks", "http://cadetapi:80/hc"));
             services
                 .AddCustomDbContext(Configuration)
                 .AddControllers();

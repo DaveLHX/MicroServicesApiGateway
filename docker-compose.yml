@@ -16,6 +16,7 @@ services:
       dockerfile: CadetApi/Dockerfile
     depends_on:
     - db
+    - seq
   commonlistsapi:
     image: ${DOCKER_REGISTRY-}commonlistsapi
     build:
@@ -25,4 +26,6 @@ services:
     - db
   db:
     image: "mcr.microsoft.com/mssql/server"
+  seq:
+    image: "datalust/seq"
   

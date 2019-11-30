@@ -47,3 +47,10 @@ services:
         ACCEPT_EULA: "Y"
     ports:
       - "5555:1433"
+
+  seq:    
+    environment:      
+        ACCEPT_EULA: "Y"
+    ports:
+      - "5556:80"
+      - "5341"

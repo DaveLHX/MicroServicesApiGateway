@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using Serilog.Events;
 using System.IO;
 
 namespace CadetApi
@@ -23,11 +24,14 @@ namespace CadetApi
             var config = builder.Build();
             var connectionString = CustomExtensionMethods.GetConnectionString(config);
             Log.Logger = new LoggerConfiguration()
-              .MinimumLevel.Verbose()
-              .Enrich.WithProperty("CadetContext", AppName)
+              //.MinimumLevel.Verbose()
+              .MinimumLevel.Debug()
+              .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+              //.Enrich.WithProperty("CadetContext", AppName)
               .Enrich.FromLogContext()
               .WriteTo.Console()
-             //.WriteTo.MSSqlServer(connectionString, "SeriLog", autoCreateSqlTable: true)
+              .WriteTo.MSSqlServer("Data Source=db;Initial Catalog=cadetapi;User Id=SA;Password=Duuu988@P4w0RD!", "SeriLog", autoCreateSqlTable: true)
+              .WriteTo.Seq("http://seq:5341",apiKey: "bIkNLejR84naps0prwcF")
               //.ReadFrom.Configuration(config)
               .CreateLogger();
             Log.Information("Starting web host ({ApplicationContext})...", AppName);
