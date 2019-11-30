@@ -2,8 +2,10 @@
 using CadetApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CadetApi.Controllers
@@ -12,12 +14,11 @@ namespace CadetApi.Controllers
     [Route("api/[controller]")]
     public class CadetController : ControllerBase
     {
-        private readonly ILogger<CadetController> _logger;
+        
         private readonly CadetContext _Context;
 
-        public CadetController(ILogger<CadetController> logger,CadetContext context)
-        {
-            _logger = logger;
+        public CadetController(CadetContext context)
+        {          
             _Context = context;
         }
 
@@ -25,7 +26,9 @@ namespace CadetApi.Controllers
         [Route("get/{cadetId}")]
         public IActionResult Get(int cadetId)
         {
-            return Ok(_Context.Cadets.FirstOrDefault(o => o.Id == cadetId));
+            var cadet = _Context.Cadets.FirstOrDefault(o => o.Id == cadetId);
+            Log.Information("returned cadet:{@cdt}", cadet);
+            return Ok(cadet);
         }
 
 
@@ -33,7 +36,9 @@ namespace CadetApi.Controllers
         [Route("getAll")]
         public IActionResult Get()
         {
-            return Ok(_Context.Cadets.ToList());
+            List<Cadet> cadets = _Context.Cadets.ToList();
+            Log.Information("retruned a list of cadets: {cdts}",cadets);
+            return Ok();
         }
 
 
