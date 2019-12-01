@@ -54,3 +54,9 @@ services:
     ports:
       - "5556:80"
       - "5341"
+  healthcheck:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5557:80"
+

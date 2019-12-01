@@ -29,3 +29,10 @@ services:
   seq:
     image: "datalust/seq"
   
+
+  healthcheck:
+    image: ${DOCKER_REGISTRY-}healthcheck
+    build:
+      context: .
+      dockerfile: HealthCheck/HealthCheck/Dockerfile
+

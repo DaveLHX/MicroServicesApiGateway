@@ -43,7 +43,6 @@ namespace CadetApi
                     name: "CadetApiDB-check",
                     healthQuery: "Select 1;",
                     tags: new string[] { "cadetapidb" });
-            services.AddHealthChecksUI("healthchecksdb", settings => settings.AddHealthCheckEndpoint("My health checks", "http://cadetapi:80/hc"));
             services
                 .AddCustomDbContext(Configuration)
                 .AddControllers();
@@ -71,8 +70,7 @@ namespace CadetApi
             app.UseAuthorization();
             
             app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapHealthChecksUI();//more config needed check link bellow.
+            {              
                 endpoints.MapControllers();
             });
 

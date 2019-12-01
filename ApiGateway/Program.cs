@@ -1,5 +1,10 @@
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Serilog;
@@ -11,15 +16,7 @@ public class Program
 {
     public static int Main(string[] args)
     {
-        //serilog
-        Log.Logger = new LoggerConfiguration()
-          .MinimumLevel.Debug()
-          .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-          .Enrich.FromLogContext()
-          .WriteTo.Console()
-          .WriteTo.Seq("http://seq:5341", apiKey: "yvPGiQuCL4h1ZhxaloKB")
-         
-          .CreateLogger();
+        ConfigureSerilog();
         try
         {
             Log.Information("Starting web host");
@@ -35,13 +32,20 @@ public class Program
                    .AddJsonFile("ocelot.json")
                    .AddEnvironmentVariables();
            })
-           .ConfigureServices(s => {
+           .ConfigureServices(s =>
+           {
+               s.AddHealthChecks().AddCheck("self", () => HealthCheckResult.Healthy());
                s.AddOcelot();
-           })          
+           })
            .UseIISIntegration()
            .UseSerilog()
            .Configure(app =>
            {
+               app.UseHealthChecks("/hc", new HealthCheckOptions()
+               {
+                   Predicate = _ => true,
+                   ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+               });
                app.UseOcelot().Wait();
            })
            .Build()
@@ -59,5 +63,16 @@ public class Program
         {
             Log.CloseAndFlush();
         }
+    }
+
+    private static void ConfigureSerilog() {
+        //serilog
+        Log.Logger = new LoggerConfiguration()
+          .MinimumLevel.Debug()
+          .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+          .Enrich.FromLogContext()
+          .WriteTo.Console()
+          .WriteTo.Seq("http://seq:5341", apiKey: "yvPGiQuCL4h1ZhxaloKB")
+          .CreateLogger();
     }
 }

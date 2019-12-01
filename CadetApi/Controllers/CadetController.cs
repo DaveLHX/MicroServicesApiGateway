@@ -37,8 +37,8 @@ namespace CadetApi.Controllers
         public IActionResult Get()
         {
             List<Cadet> cadets = _Context.Cadets.ToList();
-            Log.Information("retruned a list of cadets: {cdts}",cadets);
-            return Ok();
+            Log.Information("retruned a list of cadets: {@cdts}",cadets);
+            return Ok(cadets);
         }
 
 
