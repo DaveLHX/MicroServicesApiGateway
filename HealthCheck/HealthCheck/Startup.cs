@@ -21,8 +21,9 @@ namespace HealthCheck
         {
             services.AddHealthChecks();            
             services.AddHealthChecksUI("healthchecksdb", settings => {
-                settings.AddHealthCheckEndpoint("Cadet Api", "http://cadetapi:80/hc");
-                settings.AddHealthCheckEndpoint("Gateway", "http://apigateway:80/hc");
+                settings.AddHealthCheckEndpoint("Cadet API", "http://cadetapi:80/hc");
+                settings.AddHealthCheckEndpoint("API Gateway", "http://apigateway:80/hc");
+                settings.AddHealthCheckEndpoint("Common Lists API", "http://commonlistsapi:80/hc");
                     }
             );
            // services.AddHealthChecksUI("healthchecksdb", settings => settings.AddHealthCheckEndpoint("Api gateway", "http://apigateway:80/hc"));

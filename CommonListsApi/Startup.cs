@@ -1,10 +1,13 @@
 
 using CommonListsApi.Db;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 
 namespace CourseHistory
@@ -21,6 +24,8 @@ namespace CourseHistory
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHealthChecks()
+             .AddCheck("self", () => HealthCheckResult.Healthy());
             var server = Configuration["DbServer"] ?? "localhost";
             var port = Configuration["DbPort"] ?? "1433";
             var user = Configuration["DBUser"] ?? "SA";
@@ -41,7 +46,11 @@ namespace CourseHistory
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseHealthChecks("/hc", new HealthCheckOptions()
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -56,6 +65,7 @@ namespace CourseHistory
             {
                 PrepDB.MigrateAndPopulate(app);
             }
+           
 
         }
     }

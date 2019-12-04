@@ -22,3 +22,19 @@ todo:
 - autofac???
 
 **add links page to the health site
+
+Health:
+http://localhost:5557/healthchecks-ui
+SEQ
+http://localhost:5556/
+db
+http://localhost:5555/
+
+Api gateway:
+http://localhost:5540/getCadet/{cadetId}
+http://localhost:5540/Cadet/{everything}
+http://localhost:5540/Cadet/getCadet/{cadetId}
+http://localhost:5540/Reference/{everything}
+http://localhost:5540/CadetAndRanks/{cadetId}
+
+http://localhost:5541/swagger

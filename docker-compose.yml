@@ -9,6 +9,8 @@ services:
     depends_on:
     - cadetapi
     - commonlistsapi
+    #extra_hosts:
+    #- "github:140.82.113.5"
   cadetapi:
     image: ${DOCKER_REGISTRY-}cadetapi
     build:
@@ -25,10 +27,14 @@ services:
     depends_on:
     - db
   db:
-    image: "mcr.microsoft.com/mssql/server"
-  seq:
+    image: "mcr.microsoft.com/mssql/server"    
+  seq:    
     image: "datalust/seq"
-  
+    environment:      
+        ACCEPT_EULA: "Y"
+    ports:
+      - "5556:80"
+      - "5341"
 
   healthcheck:
     image: ${DOCKER_REGISTRY-}healthcheck
