@@ -47,13 +47,13 @@ services:
         ACCEPT_EULA: "Y"
     ports:
       - "5555:1433"
-
   seq:    
+    image: "datalust/seq:latest"
     environment:      
         ACCEPT_EULA: "Y"
     ports:
       - "5556:80"
-      - "5341"
+      - "5341"  
   healthcheck:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

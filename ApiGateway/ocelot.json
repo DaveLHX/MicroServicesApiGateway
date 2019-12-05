@@ -29,20 +29,6 @@
       "Key": "CadetAll"
     },
     {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "commonlistsapi",
-          //"Host": "host.docker.internal",
-          //"Port": "44387"
-          "Port": "80"
-        }
-      ],
-      "UpstreamPathTemplate": "/Reference/{everything}",
-      "Key": "Reference"
-    },
-    {
       "DownstreamPathTemplate": "/api/Military/Ranks",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -55,15 +41,44 @@
       ],
       "UpstreamPathTemplate": "/Reference/Military/Ranks",
       "Key": "Ranks"
+    },
+    {
+      "DownstreamPathTemplate": "/csar-back-end/api/Element/List/{language}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "csar",
+          //"Host": "host.docker.internal",
+          //"Port": "44387"
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Reference/Military/Elements/{language}",
+      "Key": "Elements"
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "commonlistsapi",
+          //"Host": "host.docker.internal",
+          //"Port": "44387"
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Reference/{everything}",
+      "Key": "Reference"
     }
   ],
   "Aggregates": [
     {
       "ReRouteKeys": [
         "Cadet",
-        "Ranks"
+        "Ranks",
+        "Elements"
       ],
-      "UpstreamPathTemplate": "/CadetAndRanks/{cadetId}"
+      "UpstreamPathTemplate": "/CadetAndRanks/{cadetId}/{language}"
     }  
   ],
   "GlobalConfiguration": {

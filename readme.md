@@ -33,8 +33,9 @@ http://localhost:5555/
 Api gateway:
 http://localhost:5540/getCadet/{cadetId}
 http://localhost:5540/Cadet/{everything}
-http://localhost:5540/Cadet/getCadet/{cadetId}
-http://localhost:5540/Reference/{everything}
-http://localhost:5540/CadetAndRanks/{cadetId}
+http://localhost:5540/Cadet/getCadet/{cadetId}    
+http://localhost:5540/Reference/Military/Ranks   //From commonlistsApi    
+http://localhost:5540/Reference/Military/Elements/fr  //from CSAR
+http://localhost:5540/CadetAndRanks/88/fr //From commonlistsApi ,CadetApi and CSAR api 
 
 http://localhost:5541/swagger

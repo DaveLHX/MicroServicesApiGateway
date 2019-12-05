@@ -11,7 +11,9 @@ services:
       - "6666:80"       
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro    
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro 
+    extra_hosts:
+      - "csar:10.10.200.116"   
     depends_on:
     - cadetapi
     - commonlistsapi
@@ -52,9 +54,9 @@ services:
     depends_on:
     - db
   db:
-    image: "mcr.microsoft.com/mssql/server"  
-    environment:
-        SA_PASSWORD: "Duuu988@P4w0RD!"
-        ACCEPT_EULA: "Y"
-    ports:
-      - "6667:1433"
+    image: "mcr.microsoft.com/mssql/server"    
+  seq:    
+    image: "datalust/seq:latest"   
+  healthcheck:
+    image: healthcheck:latest
+    
